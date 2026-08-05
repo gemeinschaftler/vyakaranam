@@ -1,0 +1,23 @@
+[
+{"id":"AS-1-1-26","number":"1.1.26","sutra":"क्तक्तवतू निष्ठा","scope":"saṃjñā","status":"core","operation":"The affixes क्त and क्तवतु receive the technical designation निष्ठा."},
+{"id":"AS-3-2-102","number":"3.2.102","sutra":"निष्ठा","scope":"affix-selection","status":"core","operation":"Introduces the niṣṭhā affixes in the completed-action domain carried into this section."},
+{"id":"AS-3-4-70","number":"3.4.70","sutra":"तयोरेव कृत्यक्तखलर्थाः","scope":"semantic-domain","status":"expand","operation":"Registers the semantic/syntactic domain inherited by kṛtya, kta, and khal-artha formations."},
+{"id":"AS-3-4-72","number":"3.4.72","sutra":"गत्यर्थाकर्मकश्लिषशीङ्स्थासवसजनरुहजीर्यतिभ्यश्च","scope":"voice","status":"core","operation":"Allows kartari interpretation of क्त after motion roots, intransitives, and the specifically listed roots."},
+{"id":"AS-7-2-35","number":"7.2.35","sutra":"आर्धधातुकस्येड् वलादेः","scope":"iṭ","status":"core","operation":"Supplies iṭ before a val-initial ārdhadhātuka affix, subject to the following prohibitions and options."},
+{"id":"AS-8-2-42","number":"8.2.42","sutra":"रदाभ्यां निष्ठातो नः पूर्वस्य च दः","scope":"niṣṭhā-phonology","status":"core","operation":"After roots ending in r or d, niṣṭhā t may become n, with the prescribed change of the preceding d."},
+{"id":"AS-8-2-43","number":"8.2.43","sutra":"संयोगादेरातो धातोर्यण्वतः","scope":"niṣṭhā-phonology","status":"expand","operation":"Niṣṭhā substitution in the stated consonant-cluster/ā-root environment."},
+{"id":"AS-8-2-44","number":"8.2.44","sutra":"ल्वादिभ्यः","scope":"niṣṭhā-phonology","status":"expand","operation":"Extends the niṣṭhā substitution to the lexical lū-ādi class."},
+{"id":"AS-8-2-45","number":"8.2.45","sutra":"ओदितश्च","scope":"niṣṭhā-phonology","status":"core","operation":"Extends the relevant niṣṭhā operation to roots marked with indicatory o."},
+{"id":"AS-8-2-46","number":"8.2.46","sutra":"क्षियो दीर्घात्","scope":"niṣṭhā-phonology","status":"expand","operation":"Special niṣṭhā treatment for kṣi after a long vowel."},
+{"id":"AS-8-2-49","number":"8.2.49","sutra":"दिवोऽविजिगीषायाम्","scope":"lexical-exception","status":"expand","operation":"Special niṣṭhā result for div outside the stated desiderative sense."},
+{"id":"AS-8-2-51","number":"8.2.51","sutra":"शुषः कः","scope":"lexical-exception","status":"core","operation":"Prescribes k in the niṣṭhā formation of śuṣ."},
+{"id":"AS-8-2-52","number":"8.2.52","sutra":"पचो वः","scope":"lexical-exception","status":"core","operation":"Prescribes v in the relevant niṣṭhā formation of pac."},
+{"id":"AS-8-2-53","number":"8.2.53","sutra":"क्षायो मः","scope":"lexical-exception","status":"expand","operation":"Prescribes m for the stated kṣā environment."},
+{"id":"AS-8-2-55","number":"8.2.55","sutra":"अनुपसर्गात्फुल्लक्षीबकृशोल्लाघाः","scope":"nipātana","status":"expand","operation":"Lists lexicalized forms in the absence of a preverb."},
+{"id":"AS-8-2-56","number":"8.2.56","sutra":"नुदविदोन्दत्राघ्राह्रीभ्योऽन्यतरस्याम्","scope":"option","status":"core","operation":"Provides optional niṣṭhā treatment for the listed roots."},
+{"id":"AS-8-2-57","number":"8.2.57","sutra":"न ध्याख्यापॄमूर्छिमदाम्","scope":"prohibition","status":"core","operation":"Blocks the inherited operation for the listed roots."},
+{"id":"AS-8-2-58","number":"8.2.58","sutra":"वित्तो भोगप्रत्यययोः","scope":"meaning-conditioned","status":"expand","operation":"Restricts vitta to the stated meanings."},
+{"id":"AS-8-2-59","number":"8.2.59","sutra":"भित्तं शकलम्","scope":"meaning-conditioned","status":"expand","operation":"Lexicalizes bhitta in the meaning fragment."},
+{"id":"AS-8-2-60","number":"8.2.60","sutra":"ऋणमाधमर्ण्ये","scope":"meaning-conditioned","status":"expand","operation":"Lexical/semantic prescription in the domain of indebtedness."},
+{"id":"AS-8-4-55","number":"8.4.55","sutra":"खरि च","scope":"sandhi","status":"core","operation":"Applies the relevant final devoicing before a khar sound and at pause under inherited conditions."}
+]

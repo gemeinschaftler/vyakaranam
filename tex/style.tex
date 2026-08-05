@@ -1,0 +1,19 @@
+\usepackage{fontspec}
+\usepackage{longtable,array,booktabs,xcolor,hyperref,xparse,geometry,microtype}
+\geometry{a4paper,margin=1.75cm}
+\setmainfont{FreeSerif}
+\newfontfamily\devanagarifont[Script=Devanagari,Scale=1.05]{Noto Serif Devanagari}
+\newcommand{\SA}[1]{{\devanagarifont #1}}
+\hypersetup{unicode=true,colorlinks=true,linkcolor=blue,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4em}
+\newcommand{\EmptyTarget}[1]{\hypertarget{#1}{}}
+\newcommand{\XRef}[2]{\hyperlink{#1}{#2}}
+\newcommand{\RuleRef}[1]{\XRef{rule:#1}{\texttt{#1}}}
+\newcommand{\RootRef}[1]{\XRef{root:#1}{\texttt{#1}}}
+\newcommand{\UseRef}[1]{\XRef{use:#1}{\texttt{#1}}}
+\newcommand{\DerivRef}[1]{\XRef{deriv:#1}{\texttt{#1}}}
+\newcommand{\BackToRule}[1]{\hfill{\scriptsize\XRef{rule:#1}{↑ global rule}}}
+\newenvironment{bardown}[1]{\subsection*{#1}\begin{longtable}{>{\raggedleft\arraybackslash}p{0.29\linewidth}!{\vrule width .7pt}>{\raggedright\arraybackslash}p{0.66\linewidth}}}{\end{longtable}}
+\newcommand{\BRow}[2]{#1 & #2\\[.7em]}
+\newcommand{\LocalRuleUse}[4]{\EmptyTarget{use:#1}\textbf{\texttt{#1}} — \SA{#2}\par #3 \BackToRule{#4}}
