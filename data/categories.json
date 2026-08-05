@@ -1,0 +1,9 @@
+{
+  "CAT-REGULAR-TA":{"name":"प्रत्यक्षतकारान्तः","description":"Surface -ta remains directly visible."},
+  "CAT-IT-TA":{"name":"इडागमयुक्तः","description":"iṭ appears before क्त under the ārdhadhātuka iṭ system."},
+  "CAT-NATVA-NISTHA":{"name":"निष्ठानत्वम्","description":"The niṣṭhā dental undergoes n-substitution under 8.2.42ff."},
+  "CAT-LEXICAL":{"name":"निपातितविशेषः","description":"The output depends on a lexical or meaning-conditioned prescription."},
+  "CAT-OPTIONAL":{"name":"विकल्पितः","description":"More than one derivation is licensed."},
+  "CAT-KARTARI":{"name":"कर्तरि क्तः","description":"The क्त form receives kartari interpretation under 3.4.72."},
+  "CAT-KARMANI":{"name":"कर्मणि क्तः","description":"The ordinary passive/resultative interpretation."}
+}

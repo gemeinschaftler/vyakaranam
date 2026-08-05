@@ -1,0 +1,45 @@
+\documentclass[11pt]{book}
+\input{tex/style.tex}
+\title{\SA{क्तप्रक्रियामानचित्रम्}\\A Process Map for Deciding the क्त Form of Any Sanskrit Dhātu}
+\author{A generator-backed Bar-Down grammar archive}
+\date{\today}
+\begin{document}
+\frontmatter
+\maketitle
+\tableofcontents
+
+\chapter*{प्रयोगप्रतिज्ञा}
+\addcontentsline{toc}{chapter}{प्रयोगप्रतिज्ञा}
+This book is a derivational index. Explanations are stored once and reused by hyperlink. A chapter first links to a local “rules used” occurrence; that occurrence links to the ordered global rule registry. Root entries link back to the complete Dhātupāṭha registry.
+
+\input{tex/process-map.tex}
+
+\mainmatter
+\part{Preamble 1: \SA{धातुगणाः}}
+\input{build/generated/dhatupatha.tex}
+
+\part{Preamble 2: \SA{सूत्राणि}}
+\input{build/generated/rules.tex}
+
+\part{\SA{गणपदानि}}
+\input{tex/ganas/01-bhvadi.tex}
+\input{tex/ganas/02-adadi.tex}
+\input{tex/ganas/03-juhotyadi.tex}
+\input{tex/ganas/04-divadi.tex}
+\input{tex/ganas/05-svadi.tex}
+\input{tex/ganas/06-tudadi.tex}
+\input{tex/ganas/07-rudhadi.tex}
+\input{tex/ganas/08-tanadi.tex}
+\input{tex/ganas/09-kryadi.tex}
+\input{tex/ganas/10-curadi.tex}
+\input{tex/ganas/11-kandvadi.tex}
+
+\part{Cross-cutting registries}
+\input{build/generated/categories.tex}
+\input{tex/sandhi.tex}
+\input{build/generated/irregular.tex}
+
+\backmatter
+\chapter{Audit ledger}
+\input{build/generated/audit.tex}
+\end{document}
