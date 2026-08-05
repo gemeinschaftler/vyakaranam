@@ -4,6 +4,14 @@ tools and drafts of rules and examples for learning sanskrit grammar's longstand
 
 open to editing.
 
+## Written proof of work
+
+- [vyakaranamlikhitam/](./vyakaranamlikhitam/)
+  - [kta/](./vyakaranamlikhitam/kta/)
+    - [kta-process-map-proof.pdf](./vyakaranamlikhitam/kta/kta-process-map-proof.pdf)
+
+`vyakaranamlikhitam/` is the final publication stage for exploratory projects. Each project receives its own folder and deposits one or more compiled PDFs there as an inspectable proof of work.
+
 ---
 
 # क्तप्रक्रियामानचित्रम् — kta Process Map
