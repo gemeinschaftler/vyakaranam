@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Validate every compiled proof PDF in vyakaranamlikhitam/."""
+"""Validate compiled proof PDFs when the repository contains any.
+
+Markdown-only proof projects are valid and are checked by their own link-aware
+build workflows. This validator therefore succeeds cleanly when no PDFs exist.
+"""
 from __future__ import annotations
 
 import hashlib
@@ -43,7 +47,8 @@ def validate_pdf(path: Path) -> None:
 def main() -> None:
     pdfs = sorted(PROOFS.rglob("*.pdf"))
     if not pdfs:
-        raise RuntimeError("No proof PDFs found under vyakaranamlikhitam/")
+        print("No proof PDFs found; Markdown-only proof folders are valid.")
+        return
     for pdf in pdfs:
         validate_pdf(pdf)
 
