@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>kta precedent lookup</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:52rem;margin:3rem auto;padding:0 1rem;line-height:1.5}form{display:grid;grid-template-columns:1fr 12rem auto;gap:.7rem;align-items:end}label{display:grid;gap:.25rem}input,select,button{font:inherit;padding:.55rem}article{margin-top:1.5rem;padding:1rem;border:1px solid #bbb;border-radius:.4rem}code{overflow-wrap:anywhere}@media(max-width:700px){form{grid-template-columns:1fr}}</style>
+</head>
+<body>
+<h1><span lang="sa-Deva">क्त</span> precedent lookup</h1>
+<p>Human <em>niveśa</em>: enter a dhātu and select its gaṇa. The result is read from the same canonical list used by the machine checker.</p>
+<form id="lookup">
+<label>Dhātu<input id="dhatu" required placeholder="गम्, gam, or 01.1137" autocomplete="off"></label>
+<label>Gaṇa<select id="gana"><option value="">any gaṇa</option></select></label>
+<button type="submit">Find kta</button>
+</form>
+<div id="result" aria-live="polite"></div>
+<p><a href="kta-process-map.md">Open the preambled Dhātupāṭha by examples</a></p>
+<p><small>Canonical precedents: <code>../../data/examples.json</code>. This lookup reports audited precedent; it does not invent an unrecorded form.</small></p>
+<script>
+const ganaNames=['','bhvādi','adādi','juhotyādi','divādi','svādi','tudādi','rudhādi','tanādi','kryādi','curādi','kaṇḍvādi'];
+const select=document.querySelector('#gana');
+for(let i=1;i<=11;i++){const o=document.createElement('option');o.value=i;o.textContent=`${i} — ${ganaNames[i]}`;select.append(o)}
+const norm=s=>s.normalize('NFC').trim().replace(/^√/,'');
+let precedents=[];
+fetch('../../data/examples.json').then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(x=>precedents=x).catch(()=>{document.querySelector('#result').innerHTML='<article>Could not load the precedent list. Serve the repository root with <code>python3 -m http.server</code>, then open this page through localhost.</article>'});
+document.querySelector('#lookup').addEventListener('submit',e=>{e.preventDefault();const q=norm(document.querySelector('#dhatu').value);const g=Number(select.value)||null;const rows=precedents.filter(r=>([r.root,r.slp1,r.code].map(norm).includes(q))&&(!g||r.gana===g));const out=document.querySelector('#result');if(!rows.length){out.innerHTML='<article>No audited precedent is recorded for that dhātu and gaṇa.</article>';return}out.innerHTML=rows.map(r=>`<article><h2><span lang="sa-Deva">√${r.root} → ${r.kta}</span></h2><p><strong>Gaṇa:</strong> ${r.gana} — ${ganaNames[r.gana]} · <strong>Source ID:</strong> <code>${r.code}</code></p><p><strong>Rules:</strong> ${r.rules.map(x=>`<code>${x}</code>`).join(', ')}</p><p>${r.note}</p></article>`).join('')});
+</script>
+</body>
+</html>
