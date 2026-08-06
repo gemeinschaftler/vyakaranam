@@ -1,9 +1,8 @@
-name: Reconstruct kta proof PDF
+name: Build verified kta proof PDF
 
 on:
   pull_request:
     paths:
-      - '.github/pdf-staging/kta/**'
       - '.github/workflows/reconstruct-kta-proof.yml'
   workflow_dispatch:
 
@@ -11,40 +10,155 @@ permissions:
   contents: write
 
 jobs:
-  reconstruct:
-    if: github.event.pull_request.head.repo.full_name == github.repository
+  build-pdf:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
-      - name: Install PDF validator
+      - name: Install PDF tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y poppler-utils
-      - name: Reconstruct exact binary
+          sudo apt-get install -y poppler-utils fonts-dejavu-core
+          python -m pip install --disable-pip-version-check reportlab
+      - name: Generate three-page IAST proof
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p vyakaranamlikhitam/kta
-          cat .github/pdf-staging/kta/part*.b64 | tr -d '\n\r ' | base64 --decode > /tmp/kta-process-map-proof.pdf
-          test "$(stat -c%s /tmp/kta-process-map-proof.pdf)" = "46002"
-          echo "b69dc572c3547ced59c57806e453100388209787eb42a839a201cedf133c6818  /tmp/kta-process-map-proof.pdf" | sha256sum --check
-          pdfinfo /tmp/kta-process-map-proof.pdf | grep -q '^Pages:[[:space:]]*3$'
-          pdftoppm -f 1 -singlefile -png /tmp/kta-process-map-proof.pdf /tmp/kta-proof-page >/dev/null 2>&1
+          python - <<'PY'
+          from pathlib import Path
+          from reportlab.lib import colors
+          from reportlab.lib.enums import TA_CENTER
+          from reportlab.lib.pagesizes import A4
+          from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+          from reportlab.lib.units import mm
+          from reportlab.pdfbase import pdfmetrics
+          from reportlab.pdfbase.ttfonts import TTFont
+          from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak
+
+          out = Path('vyakaranamlikhitam/kta/kta-process-map-proof.pdf')
+          pdfmetrics.registerFont(TTFont('Serif', '/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf'))
+          pdfmetrics.registerFont(TTFont('SerifI', '/usr/share/fonts/truetype/dejavu/DejaVuSerif-Italic.ttf'))
+          pdfmetrics.registerFont(TTFont('SerifB', '/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf'))
+          pdfmetrics.registerFontFamily('Serif', normal='Serif', bold='SerifB', italic='SerifI')
+
+          ss = getSampleStyleSheet()
+          title = ParagraphStyle('TitleX', parent=ss['Title'], fontName='SerifB', fontSize=23, leading=28, alignment=TA_CENTER, spaceAfter=8)
+          sub = ParagraphStyle('SubX', parent=ss['Normal'], fontName='Serif', fontSize=11, leading=15, alignment=TA_CENTER, spaceAfter=14)
+          h = ParagraphStyle('HX', parent=ss['Heading2'], fontName='SerifB', fontSize=14, leading=18, spaceBefore=7, spaceAfter=6)
+          body = ParagraphStyle('BodyX', parent=ss['BodyText'], fontName='Serif', fontSize=9.3, leading=13, spaceAfter=5)
+          small = ParagraphStyle('SmallX', parent=body, fontSize=8.2, leading=11.2, spaceAfter=2)
+          foot = ParagraphStyle('FootX', parent=body, fontSize=7.4, alignment=TA_CENTER, textColor=colors.HexColor('#555555'))
+
+          def P(text, style=body): return Paragraph(text, style)
+          def S(text): return f'<font name="SerifI">{text}</font>'
+          def B(text): return f'<font name="SerifB">{text}</font>'
+          def table(rows, widths):
+              t = Table(rows, colWidths=widths, repeatRows=1)
+              t.setStyle(TableStyle([
+                  ('BACKGROUND',(0,0),(-1,0),colors.HexColor('#EAEAEA')),
+                  ('GRID',(0,0),(-1,-1),0.35,colors.HexColor('#777777')),
+                  ('VALIGN',(0,0),(-1,-1),'TOP'),
+                  ('LEFTPADDING',(0,0),(-1,-1),5),('RIGHTPADDING',(0,0),(-1,-1),5),
+                  ('TOPPADDING',(0,0),(-1,-1),4),('BOTTOMPADDING',(0,0),(-1,-1),4),
+              ]))
+              return t
+
+          story = [
+              P('The ⟨kta⟩ Process Map', title),
+              P('Proof of work for a generator-backed Sanskrit grammar archive', sub),
+              P('Notation', h),
+          ]
+          notation = [
+              [P(B('Form'), small), P(B('Convention'), small)],
+              [P(S('dhātu, gaṇa, niṣṭhā, kartari'), small), P('Sanskrit terms are italic IAST.', small)],
+              [P('√' + S('gam'), small), P('The root sign marks a verbal root.', small)],
+              [P('⟨' + S('kta') + '⟩', small), P('Angle brackets mark an affix or grammatical form.', small)],
+              [P('AS-8-2-42', small), P('Stable identifier for an Aṣṭādhyāyī rule.', small)],
+          ]
+          story += [table(notation, [60*mm, 106*mm]), Spacer(1, 6), P('Decision flow', h)]
+          flow = [
+              ('1. ' + S('Dhātu') + ' identity', 'Resolve the exact ' + S('Dhātupāṭha') + ' entry, ' + S('gaṇa') + ', markers, meaning, preverb, and intended syntax.'),
+              ('2. Affix selection', 'Introduce ⟨' + S('kta') + '⟩ and register it as ' + S('niṣṭhā') + '.'),
+              ('3. Voice and meaning', 'Test the ordinary resultative reading and any licensed ' + S('kartari') + ' interpretation.'),
+              ('4. ' + S('iṭ') + ' decision', 'Apply the ' + S('ārdhadhātuka iṭ') + ' system; do not infer ' + S('seṭ / aniṭ / veṭ') + ' from the ' + S('gaṇa') + ' alone.'),
+              ('5. Root operations', 'Apply substitutions, augments, and ordered phonology.'),
+              ('6. ' + S('Niṣṭhā') + ' rules', 'Check 8.2.42ff. for substitutions, lexical outcomes, options, and prohibitions.'),
+              ('7. ' + S('Sandhi') + ' and audit', 'Record the final form, competing licensed outputs, sources, and unresolved questions.'),
+          ]
+          story += [table([[P(B(a),small),P(b,small)] for a,b in flow],[48*mm,118*mm]), Spacer(1,7), P('Repository architecture',h)]
+          architecture = [
+              (S('Preamble 1'), 'Complete ' + S('Dhātupāṭha') + ' registry with stable root anchors.'),
+              (S('Preamble 2'), 'Pāṇinian ' + S('sūtra') + ' registry in numerical order.'),
+              ('Chapters 1-11', S('Gaṇa') + '-specific derivation bars and local rule-use anchors.'),
+              ('Cross-cutting registries', S('Sandhi') + ', composition categories, exceptions, and audit status.'),
+              ('Final proof', 'Compiled PDFs under <font name="Serif">vyakaranamlikhitam/&lt;project&gt;/</font>.'),
+          ]
+          story += [table([[P(B(a),small),P(b,small)] for a,b in architecture],[48*mm,118*mm]), PageBreak(), P('Initial rule backbone',h)]
+
+          rules = [
+              ('1.1.26','ktaktavatū niṣṭhā','Defines ⟨kta⟩ and ⟨ktavatu⟩ as niṣṭhā.'),
+              ('3.2.102','niṣṭhā','Introduces the niṣṭhā affixes in the completed-action domain.'),
+              ('3.4.72','gatyarthākarmakaśliṣaśīṅsthāsavasajanaruhajīryatibhyaś ca','Licenses kartari interpretation for motion roots, intransitives, and listed roots.'),
+              ('7.2.35','ārdhadhātukasyed valādeḥ','Provides iṭ before a val-initial ārdhadhātuka affix, subject to later rules.'),
+              ('8.2.42','radābhyāṃ niṣṭhāto naḥ pūrvasya ca daḥ','Begins central niṣṭhā substitutions after roots ending in r or d.'),
+              ('8.2.51','śuṣaḥ kaḥ','Prescribes the special k outcome for √śuṣ.'),
+              ('8.2.52','paco vaḥ','Prescribes the special v outcome for √pac.'),
+              ('8.2.56',"nudavidondatrāghrāhrībhyo 'nyatarasyām",'Allows optional treatment for the listed roots.'),
+              ('8.2.57','na dhyākhyāpṝmūrchimadām','Blocks the inherited operation for the listed roots.'),
+              ('8.4.55','khari ca','Registers a relevant final-devoicing environment.'),
+          ]
+          rr = [[P(B('Rule'),small),P(B('Sanskrit sūtra - IAST'),small),P(B('Operational use'),small)]]
+          rr += [[P(n,small),P(S(s),small),P(o,small)] for n,s,o in rules]
+          story += [P('Each Sanskrit rule is presented in full IAST and separated from its English operational description.',body), table(rr,[22*mm,73*mm,71*mm]), Spacer(1,8), P('Stable identifiers',h)]
+          for x in ['DHATU-01-0001','AS-8-2-42','G01-AS-8-2-42-U01','G01-DHATU-01-0001-KTA','G01-SANDHI-AS-8-4-55-U01']:
+              story.append(P(x,small))
+          story += [Spacer(1,5), P('Coverage status',h), P('This proves the implemented architecture; it does not claim that every Sanskrit root already has a fully audited ⟨' + S('kta') + '⟩ derivation.',body), PageBreak(), P('Sample derivational categories',h)]
+
+          samples = [
+              ('Regular surface ⟨kta⟩','√' + S('bhū') + ' + ⟨' + S('kta') + '⟩ → ' + S('bhūta'),'High-frequency model with visible -ta.'),
+              (S('Kartari') + ' motion-root reading','√' + S('gam') + ' + ⟨' + S('kta') + '⟩ → ' + S('gata'),'Motion roots can license a kartari interpretation under 3.4.72.'),
+              ('Lexical outcome','√' + S('pac') + ' + ⟨' + S('kta') + '⟩ → ' + S('pakva'),'The result depends on a specific niṣṭhā rule, not simple concatenation.'),
+              ('Optional/meaning-conditioned','√' + S('vid') + ' → ' + S('vitta / vidita'),'Optionality and lexical meaning must be recorded separately.'),
+          ]
+          sr = [[P(B('Category'),small),P(B('Example'),small),P(B('Audit note'),small)]]
+          sr += [[P(a,small),P(b,small),P(c,small)] for a,b,c in samples]
+          story += [P('Sanskrit is consistently marked as italic IAST; roots carry √ and affixes use angle brackets.',body), table(sr,[47*mm,56*mm,63*mm]), Spacer(1,9), P('Publication rule',h), P('Every exploratory grammar project ends with one or more human-inspectable PDFs in vyakaranamlikhitam/&lt;project&gt;/. Editable sources and generators remain elsewhere.',body)]
+
+          def footer(canvas, doc):
+              canvas.saveState(); canvas.setFont('Serif',7.2); canvas.setFillColor(colors.HexColor('#555555'))
+              canvas.drawCentredString(A4[0]/2, 11*mm, f'vyakaranamlikhitam/kta - compiled proof of work - page {doc.page}')
+              canvas.restoreState()
+
+          doc = SimpleDocTemplate(str(out), pagesize=A4, leftMargin=20*mm, rightMargin=20*mm, topMargin=18*mm, bottomMargin=19*mm, title='The kta Process Map - Proof of Work', author='vyakaranamlikhitam / kta')
+          doc.build(story, onFirstPage=footer, onLaterPages=footer)
+          print(out)
+          PY
+      - name: Parse and render repository artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          pdf=vyakaranamlikhitam/kta/kta-process-map-proof.pdf
+          test -s "$pdf"
+          test "$(head -c 5 "$pdf")" = '%PDF-'
+          pdfinfo "$pdf" | tee /tmp/pdfinfo.txt
+          grep -q '^Pages:[[:space:]]*3$' /tmp/pdfinfo.txt
+          pdftoppm -f 1 -singlefile -png "$pdf" /tmp/kta-proof-page >/dev/null 2>&1
           test -s /tmp/kta-proof-page.png
-          mv /tmp/kta-process-map-proof.pdf vyakaranamlikhitam/kta/kta-process-map-proof.pdf
-      - name: Leave only final PDFs in the proof folder
+          sha256sum "$pdf"
+      - name: Leave only final PDFs in proof folder
         run: |
           rm -rf .github/pdf-staging
           rm -f .github/workflows/reconstruct-kta-proof.yml
           rm -f tmp-binary-check.txt
           rm -f vyakaranamlikhitam/kta/README.md
           rm -f vyakaranamlikhitam/kta/.binary-upload-note
-      - name: Commit verified binary to PR branch
+      - name: Commit verified PDF to PR branch
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add -A
-          git commit -m "Replace kta proof PDF with verified IAST binary"
+          git commit -m 'Replace kta proof PDF with generated and rendered IAST artifact'
           git push origin HEAD:${{ github.head_ref }}
