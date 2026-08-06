@@ -2,8 +2,6 @@
 
 tools and drafts of rules and examples for learning sanskrit grammar's longstanding body of work
 
-open to editing.
-
 ## व्याकरणलिखितम् — written proofs of work
 
 - [`vyakaranamlikhitam/`](vyakaranamlikhitam/)
