@@ -8,7 +8,7 @@ open to editing.
 
 - [`vyakaranamlikhitam/`](vyakaranamlikhitam/)
   - [`kta/`](vyakaranamlikhitam/kta/)
-    - [`kta-process-map-proof.pdf`](vyakaranamlikhitam/kta/kta-process-map-proof.pdf)
+    - [`kta-process-map-proof-iast.pdf`](vyakaranamlikhitam/kta/kta-process-map-proof-iast.pdf)
 
 Every exploratory project ends by depositing one or more compiled, human-inspectable PDFs under `vyakaranamlikhitam/<project>/`. These proof folders contain only final PDFs; editable sources and generators remain elsewhere in the repository.
 
