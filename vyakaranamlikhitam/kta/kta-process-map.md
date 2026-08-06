@@ -2663,7 +2663,7 @@ Rules are stored once, in Aṣṭādhyāyī order. A chapter derivation links fi
 
 | Bar | Recorded operation | Linked authority |
 |---|---|---|
-| Root identity | [<i lang="sa-Latn">√gam</i>](#dhatu-01-1004); Dhātupāṭha `01.1004`. | [Preamble 1](#preamble-1) |
+| Root identity | [<i lang="sa-Latn">√gam</i>](#dhatu-01-1137); Dhātupāṭha `01.1137`. | [Preamble 1](#preamble-1) |
 | Affix selection | Introduce <i lang="sa-Latn">⟨kta⟩</i>. | [local AS-3-2-102](#use-g01-as-3-2-102-u01) |
 | Technical designation | Register <i lang="sa-Latn">⟨kta⟩</i> as <i lang="sa-Latn">niṣṭhā</i>. | [local AS-1-1-26](#use-g01-as-1-1-26-u01) |
 | Rule-conditioned operation | Apply only in the environment recorded for `AS-3-4-72`. | [local AS-3-4-72](#use-g01-as-3-4-72-u01) |
@@ -2674,7 +2674,7 @@ Rules are stored once, in Aṣṭādhyāyī order. A chapter derivation links fi
 
 | Bar | Recorded operation | Linked authority |
 |---|---|---|
-| Root identity | [<i lang="sa-Latn">√pac</i>](#dhatu-01-0198); Dhātupāṭha `01.0198`. | [Preamble 1](#preamble-1) |
+| Root identity | [<i lang="sa-Latn">√pac</i>](#dhatu-01-1151); Dhātupāṭha `01.1151`. | [Preamble 1](#preamble-1) |
 | Affix selection | Introduce <i lang="sa-Latn">⟨kta⟩</i>. | [local AS-3-2-102](#use-g01-as-3-2-102-u01) |
 | Technical designation | Register <i lang="sa-Latn">⟨kta⟩</i> as <i lang="sa-Latn">niṣṭhā</i>. | [local AS-1-1-26](#use-g01-as-1-1-26-u01) |
 | Rule-conditioned operation | Apply only in the environment recorded for `AS-8-2-52`. | [local AS-8-2-52](#use-g01-as-8-2-52-u01) |
@@ -2917,7 +2917,7 @@ Rules are stored once, in Aṣṭādhyāyī order. A chapter derivation links fi
 
 | Bar | Recorded operation | Linked authority |
 |---|---|---|
-| Root identity | [<i lang="sa-Latn">√kṛ</i>](#gana-08); gaṇa registry; exact source row awaits audit. | [Preamble 1](#preamble-1) |
+| Root identity | [<i lang="sa-Latn">√kṛ</i>](#dhatu-08-0010); Dhātupāṭha `08.0010`. | [Preamble 1](#preamble-1) |
 | Affix selection | Introduce <i lang="sa-Latn">⟨kta⟩</i>. | [local AS-3-2-102](#use-g08-as-3-2-102-u01) |
 | Technical designation | Register <i lang="sa-Latn">⟨kta⟩</i> as <i lang="sa-Latn">niṣṭhā</i>. | [local AS-1-1-26](#use-g08-as-1-1-26-u01) |
 | Audit result | <i lang="sa-Latn">kṛta</i>. Canonical high-frequency model. | [CAT-REGULAR-TA](#category-cat-regular-ta), [CAT-KARMANI](#category-cat-karmani) |
