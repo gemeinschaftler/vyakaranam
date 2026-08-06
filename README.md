@@ -4,6 +4,14 @@ tools and drafts of rules and examples for learning sanskrit grammar's longstand
 
 open to editing.
 
+## व्याकरणलिखितम् — compiled proofs of work
+
+- [`vyakaranamlikhitam/`](vyakaranamlikhitam/)
+  - [`kta/`](vyakaranamlikhitam/kta/)
+    - [`kta-process-map-proof.pdf`](vyakaranamlikhitam/kta/kta-process-map-proof.pdf)
+
+Every exploratory project ends by depositing one or more compiled, human-inspectable PDFs under `vyakaranamlikhitam/<project>/`. These proof folders contain only final PDFs; editable sources and generators remain elsewhere in the repository.
+
 ---
 
 # क्तप्रक्रियामानचित्रम् — kta Process Map
