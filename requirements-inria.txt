@@ -1,0 +1,4 @@
+# Current wrappers for Gérard Huet's INRIA Sanskrit Heritage Platform.
+# Checked 2026-08-06. Keep versions pinned so precedent checks are reproducible.
+sanskrit-heritage==1.0.1
+heritage==1.1.0

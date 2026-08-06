@@ -6,9 +6,27 @@ tools and drafts of rules and examples for learning sanskrit grammar's longstand
 
 - [`vyakaranamlikhitam/`](vyakaranamlikhitam/)
   - [`kta/`](vyakaranamlikhitam/kta/)
-    - [`kta-process-map.md`](vyakaranamlikhitam/kta/kta-process-map.md)
+    - [Human input: dhātu + gaṇa → audited kta precedent](vyakaranamlikhitam/kta/index.html)
+    - [Preambled Dhātupāṭha by examples](vyakaranamlikhitam/kta/kta-process-map.md)
 
-Every exploratory project ends by depositing a linked, human-inspectable Markdown artifact under `vyakaranamlikhitam/<project>/`. The project folder contains only that final reading artifact; editable registries, source data, and generators remain elsewhere in the repository.
+Every exploratory project ends by depositing a linked, human-inspectable Markdown artifact under `vyakaranamlikhitam/<project>/`. Editable registries, source data, generators, and checker tools remain elsewhere in the repository.
+
+## Two inputs, one function
+
+Human and machine functions are identical: resolve a dhātu and gaṇa against the currently audited `kta` precedent list. Their *niveśa* differs:
+
+- human: [`vyakaranamlikhitam/kta/index.html`](vyakaranamlikhitam/kta/index.html)
+- machine: `python scripts/check_kta.py <dhātu> --gana <1..11> [--kta <form>] [--json]`
+- canonical list: [`data/examples.json`](data/examples.json), documented in [`data/KTA-PRECEDENTS.md`](data/KTA-PRECEDENTS.md)
+
+For local browser use:
+
+```bash
+python3 -m http.server
+# open http://localhost:8000/vyakaranamlikhitam/kta/
+```
+
+The optional current Heritage wrappers are pinned in [`requirements-inria.txt`](requirements-inria.txt). They support independent checks against Gérard Huet’s INRIA Sanskrit Heritage Platform; they do not silently alter the canonical precedent list.
 
 ---
 
@@ -36,6 +54,8 @@ python scripts/generate_markdown_proof.py
 The generator retrieves the complete MIT-licensed Vidyut `dhatupatha.tsv`, combines it with the local rule/example registries, validates every internal link, and writes:
 
 `vyakaranamlikhitam/kta/kta-process-map.md`
+
+The generated process map is permission-gated: request the user’s permission before regenerating or replacing it.
 
 ## Philological status
 
