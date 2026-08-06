@@ -1,0 +1,34 @@
+name: Validate proof PDFs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'vyakaranamlikhitam/**/*.pdf'
+      - 'scripts/validate_proof_pdfs.py'
+      - '.github/workflows/validate-proof-pdfs.yml'
+  pull_request:
+    paths:
+      - 'vyakaranamlikhitam/**/*.pdf'
+      - 'scripts/validate_proof_pdfs.py'
+      - '.github/workflows/validate-proof-pdfs.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install validators
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          python -m pip install --disable-pip-version-check pypdf
+      - name: Parse and render proof PDFs
+        run: python scripts/validate_proof_pdfs.py
