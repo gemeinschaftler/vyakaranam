@@ -63,7 +63,7 @@ A long-term, generator-backed map for deciding and deriving the Sanskrit *⟨kta
 | 8 | [<i lang="sa-Latn">tanādi-gaṇaḥ</i> · <span lang="sa-Deva">तनादिगणः</span>](#gana-08) | [chapter 8](#chapter-08) | 10 |
 | 9 | [<i lang="sa-Latn">kryādi-gaṇaḥ</i> · <span lang="sa-Deva">क्र्यादिगणः</span>](#gana-09) | [chapter 9](#chapter-09) | 71 |
 | 10 | [<i lang="sa-Latn">curādi-gaṇaḥ</i> · <span lang="sa-Deva">चुरादिगणः</span>](#gana-10) | [chapter 10](#chapter-10) | 509 |
-| 11 | [<i lang="sa-Latn">kaṇḍvādi-gaṇaḥ</i> · <span lang="sa-Deva">कण्ड्वादिगणः</span>](#gana-11) | [chapter 11](#chapter-11) | 0 |
+| 11 | [<i lang="sa-Latn">kaṇḍvādi-gaṇaḥ</i> · <span lang="sa-Deva">कण्ड्वादिगणः</span>](#gana-11) | [chapter 11](#chapter-11) | 1 |
 
 [↑ Contents](#toc)
 
@@ -1011,18 +1011,8 @@ The source rows are reproduced in gaṇa order without silently removing indicat
 | <a id="dhatu-01-0930"></a>`01.0930` | <i lang="sa-Latn">√yama~</i> | <i lang="sa-Latn">apariveṣaṇe</i> |
 | <a id="dhatu-01-0931"></a>`01.0931` | <i lang="sa-Latn">√skhadi~\r</i> | <i lang="sa-Latn">vidrāvaṇe vidāraṇe ca</i> |
 | <a id="dhatu-01-0932"></a>`01.0932` | <i lang="sa-Latn">√svana~</i> | <i lang="sa-Latn">avataṃsane</i> |
-| <a id="dhatu-01-0933"></a>`01.0933` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-01-0934"></a>`01.0934` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-01-0935"></a>`01.0935` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-01-0936"></a>`01.0936` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-01-0937"></a>`01.0937` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-01-0938"></a>`01.0938` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-01-0939"></a>`01.0939` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-01-0940"></a>`01.0940` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-01-0941"></a>`01.0941` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
 | <a id="dhatu-01-0942"></a>`01.0942` | <i lang="sa-Latn">√tṛha~</i> | <i lang="sa-Latn">vṛddhau</i> |
 | <a id="dhatu-01-0943"></a>`01.0943` | <i lang="sa-Latn">√tṛhi~</i> | <i lang="sa-Latn">vṛddhau</i> |
-| <a id="dhatu-01-0944"></a>`01.0944` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
 | <a id="dhatu-01-0945"></a>`01.0945` | <i lang="sa-Latn">√rugi~</i> | <i lang="sa-Latn">varjane</i> |
 | <a id="dhatu-01-0946"></a>`01.0946` | <i lang="sa-Latn">√khuḍi~</i> | <i lang="sa-Latn">gativaikalye</i> |
 | <a id="dhatu-01-0947"></a>`01.0947` | <i lang="sa-Latn">√mleḍṛ~</i> | <i lang="sa-Latn">unmāde</i> |
@@ -1328,7 +1318,6 @@ The source rows are reproduced in gaṇa order without silently removing indicat
 | <a id="dhatu-02-0073"></a>`02.0073` | <i lang="sa-Latn">√ṣasa~</i> | <i lang="sa-Latn">svapne</i> |
 | <a id="dhatu-02-0074"></a>`02.0074` | <i lang="sa-Latn">√ṣasti~</i> | <i lang="sa-Latn">svapne</i> |
 | <a id="dhatu-02-0075"></a>`02.0075` | <i lang="sa-Latn">√vaśa~</i> | <i lang="sa-Latn">kāntau</i> |
-| <a id="dhatu-02-0076"></a>`02.0076` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
 | <a id="dhatu-02-0077"></a>`02.0077` | <i lang="sa-Latn">√hnu\ṅ</i> | <i lang="sa-Latn">apanayane</i> |
 
 <a id="gana-03"></a>
@@ -1533,8 +1522,6 @@ The source rows are reproduced in gaṇa order without silently removing indicat
 | <a id="dhatu-04-0159"></a>`04.0159` | <i lang="sa-Latn">√ñikṣvidā~</i> | <i lang="sa-Latn">snehanamocanayoḥ</i> |
 | <a id="dhatu-04-0160"></a>`04.0160` | <i lang="sa-Latn">√ṛdhu~</i> | <i lang="sa-Latn">vṛddhau</i> |
 | <a id="dhatu-04-0161"></a>`04.0161` | <i lang="sa-Latn">√gṛdhu~</i> | <i lang="sa-Latn">abhikāṅkṣāyām</i> |
-| <a id="dhatu-04-0162"></a>`04.0162` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-04-0163"></a>`04.0163` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
 
 <a id="gana-05"></a>
 ## Gaṇa 5 — <i lang="sa-Latn">svādi-gaṇaḥ</i> · <span lang="sa-Deva">स्वादिगणः</span>
@@ -2393,31 +2380,17 @@ The source rows are reproduced in gaṇa order without silently removing indicat
 | <a id="dhatu-10-0490"></a>`10.0490` | <i lang="sa-Latn">√palyūla</i> | <i lang="sa-Latn">lavanavapanayoḥ</i> |
 | <a id="dhatu-10-0491"></a>`10.0491` | <i lang="sa-Latn">√ruṭha~</i> | <i lang="sa-Latn">bhāṣāyām</i> |
 | <a id="dhatu-10-0492"></a>`10.0492` | <i lang="sa-Latn">√dheka</i> | <i lang="sa-Latn">darśane</i> |
-| <a id="dhatu-10-0493"></a>`10.0493` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0494"></a>`10.0494` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0495"></a>`10.0495` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0496"></a>`10.0496` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0497"></a>`10.0497` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0498"></a>`10.0498` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0499"></a>`10.0499` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0500"></a>`10.0500` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0501"></a>`10.0501` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0502"></a>`10.0502` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0503"></a>`10.0503` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0504"></a>`10.0504` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0505"></a>`10.0505` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0506"></a>`10.0506` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0507"></a>`10.0507` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0508"></a>`10.0508` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
-| <a id="dhatu-10-0509"></a>`10.0509` | <i lang="sa-Latn">√-</i> | <i lang="sa-Latn"></i> |
 
 <a id="gana-11"></a>
 ## Gaṇa 11 — <i lang="sa-Latn">kaṇḍvādi-gaṇaḥ</i> · <span lang="sa-Deva">कण्ड्वादिगणः</span>
 
 [Derivation chapter 11](#chapter-11) · [↑ Contents](#toc)
 
+> Vidyut has no `11.*` rows; this is an explicitly separate supplementary denominative registry.
+
 | Source ID | Dhātu | Meaning/domain |
 |---|---|---|
+| <a id="dhatu-11-s001"></a>`11.S001` | <i lang="sa-Latn">√kaṇḍūy</i> | supplementary denominative entry; traditional source audit pending |
 
 <a id="preamble-2"></a>
 # Preamble 2 — <i lang="sa-Latn">sūtrāṇi</i>: ordered rule registry
@@ -3045,7 +3018,7 @@ Rules are stored once, in Aṣṭādhyāyī order. A chapter derivation links fi
 
 | Bar | Recorded operation | Linked authority |
 |---|---|---|
-| Root identity | [<i lang="sa-Latn">√kaṇḍūy</i>](#gana-11); gaṇa registry; exact source row awaits audit. | [Preamble 1](#preamble-1) |
+| Root identity | [<i lang="sa-Latn">√kaṇḍūy</i>](#dhatu-11-s001); supplementary entry `11.S001`. | [Preamble 1](#preamble-1) |
 | Affix selection | Introduce <i lang="sa-Latn">⟨kta⟩</i>. | [local AS-3-2-102](#use-g11-as-3-2-102-u01) |
 | Technical designation | Register <i lang="sa-Latn">⟨kta⟩</i> as <i lang="sa-Latn">niṣṭhā</i>. | [local AS-1-1-26](#use-g11-as-1-1-26-u01) |
 | Rule-conditioned operation | Apply only in the environment recorded for `AS-7-2-35`. | [local AS-7-2-35](#use-g11-as-7-2-35-u01) |
