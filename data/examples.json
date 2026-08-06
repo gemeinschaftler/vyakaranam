@@ -1,9 +1,9 @@
 [
   {"gana":1,"code":"01.0001","root":"भू","slp1":"BU","kta":"भूत","category":["CAT-REGULAR-TA","CAT-KARTARI"],"rules":["AS-1-1-26","AS-3-2-102","AS-3-4-72"],"note":"Initial model; full internal vowel derivation is an expansion point."},
-  {"gana":1,"code":"01.1004","root":"गम्","slp1":"gam","kta":"गत","category":["CAT-REGULAR-TA","CAT-KARTARI"],"rules":["AS-1-1-26","AS-3-2-102","AS-3-4-72"],"note":"Motion-root kartari interpretation."},
-  {"gana":1,"code":"01.x","root":"पच्","slp1":"pac","kta":"पक्व","category":["CAT-LEXICAL","CAT-KARMANI"],"rules":["AS-8-2-52"],"note":"Lexically governed niṣṭhā outcome."},
-  {"gana":2,"code":"02.x","root":"विद्","slp1":"vid","kta":"वित्त / विदित","category":["CAT-OPTIONAL","CAT-LEXICAL"],"rules":["AS-8-2-56","AS-8-2-58"],"note":"Meaning and optionality must be separated."},
-  {"gana":4,"code":"04.x","root":"शुष्","slp1":"Suz","kta":"शुष्क","category":["CAT-LEXICAL"],"rules":["AS-8-2-51"],"note":"Special k-substitution."},
-  {"gana":8,"code":"08.x","root":"कृ","slp1":"kf","kta":"कृत","category":["CAT-REGULAR-TA","CAT-KARMANI"],"rules":["AS-1-1-26","AS-3-2-102"],"note":"Canonical high-frequency model."},
-  {"gana":11,"code":"11.x","root":"कण्डूय्","slp1":"kaRqUy","kta":"कण्डूयित","category":["CAT-IT-TA"],"rules":["AS-7-2-35"],"note":"Denominative/kandvādi expansion model."}
+  {"gana":1,"code":"01.1137","root":"गम्","slp1":"gam","kta":"गत","category":["CAT-REGULAR-TA","CAT-KARTARI"],"rules":["AS-1-1-26","AS-3-2-102","AS-3-4-72"],"note":"Motion-root kartari interpretation."},
+  {"gana":1,"code":"01.1151","root":"पच्","slp1":"pac","kta":"पक्व","category":["CAT-LEXICAL","CAT-KARMANI"],"rules":["AS-8-2-52"],"note":"Lexically governed niṣṭhā outcome."},
+  {"gana":2,"code":"02.0059","root":"विद्","slp1":"vid","kta":"वित्त / विदित","category":["CAT-OPTIONAL","CAT-LEXICAL"],"rules":["AS-8-2-56","AS-8-2-58"],"note":"Meaning and optionality must be separated."},
+  {"gana":4,"code":"04.0080","root":"शुष्","slp1":"Suz","kta":"शुष्क","category":["CAT-LEXICAL"],"rules":["AS-8-2-51"],"note":"Special k-substitution."},
+  {"gana":8,"code":"08.0010","root":"कृ","slp1":"kf","kta":"कृत","category":["CAT-REGULAR-TA","CAT-KARMANI"],"rules":["AS-1-1-26","AS-3-2-102"],"note":"Canonical high-frequency model."},
+  {"gana":11,"code":"11.S001","root":"कण्डूय्","slp1":"kaRqUy","kta":"कण्डूयित","category":["CAT-IT-TA"],"rules":["AS-7-2-35"],"note":"Denominative/kandvādi expansion model."}
 ]
