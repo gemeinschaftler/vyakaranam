@@ -1,0 +1,1 @@
+Reconstruct the staged kta proof PDF on the pull-request branch.
